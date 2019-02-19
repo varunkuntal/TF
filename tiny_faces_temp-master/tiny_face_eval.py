@@ -95,10 +95,10 @@ def evaluate(weight_file_path, data_dir, output_dir, prob_thresh=0.5, nms_thresh
   score_final = model.tiny_face(x)
 
   # Find image files in data_dir.
-  # filenames = []
-  # for ext in ('*.png', '*.gif', '*.jpg', '*.jpeg'):
-  #   filenames.extend(glob.glob(os.path.join(data_dir, ext)))
-  filenames = data_dir
+  filenames = []
+  for ext in ('*.png', '*.gif', '*.jpg', '*.jpeg'):
+    filenames.extend(glob.glob(os.path.join(data_dir, ext)))
+  # filenames = data_dir
 
   # Load an average image and clusters(reference boxes of templates).
   with open(weight_file_path, "rb") as f:
