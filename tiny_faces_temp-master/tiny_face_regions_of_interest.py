@@ -34,9 +34,9 @@ def crop_faces_save(img_xsize, face_list, main_img_name):
     if (x1x2 < 48) or (y1y2 < 48):
       #print("Not taking small face found at: ", i[1][0][1], i[1][0][3], i[1][0][0], i[1][0][2])
       continue
-    if (x1x2 > 240) or (y1y2 > 240):
-     # print("Not taking small face found at: ", i[1][0][1], i[1][0][3], i[1][0][0], i[1][0][2])
-      continue
+    # if (x1x2 > 240) or (y1y2 > 240):
+    #  # print("Not taking small face found at: ", i[1][0][1], i[1][0][3], i[1][0][0], i[1][0][2])
+    #   continue
     oneFace = img_xsize[i[1][0][1]:i[1][0][3], i[1][0][0]:i[1][0][2]]
     num_faces_taken = num_faces_taken + 1
     resize_save_f(oneFace, main_img_name, main_directory, i[0])
@@ -46,7 +46,7 @@ def crop_faces_save(img_xsize, face_list, main_img_name):
 def resize_save_f(face_numpy, main_img_name, main_directory, n):
   #print("resize_save_f gives face_shape: ", face_numpy.shape[:2])
   #n_resolution = new_resolution(face_numpy.shape[:2])
-  res = cv2.resize(face_numpy, dsize=(48, 48), interpolation=cv2.INTER_CUBIC)
+  res = cv2.resize(face_numpy, dsize=(96, 96), interpolation=cv2.INTER_CUBIC)
   # height = np.size(res, 0)
   # width = np.size(res, 1)
   # if not (width < 40 or height < 40 or width > 300 or height > 300):
